@@ -38,17 +38,23 @@ Avataan selain sekä tekstieditori siten, että näet koodin ja web-sivun samaan
 Sovelluksen koodi on hakemistossa <i>src</i>. Yksinkertaistetaan valmiina olevaa koodia siten, että tiedoston <i>main.jsx</i> sisällöksi tulee:
 
 ```js
-import ReactDOM from 'react-dom/client'
+import React from 'react'
+import { createRoot } from 'react-dom/client'
 
 import App from './App'
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+const rootElement = document.getElementById('root')
 
+if (rootElement) {
+  createRoot(rootElement).render(<App />)
+}
 ```
 
 ja tiedoston <i>App.jsx</i> sisällöksi
 
 ```js
+import React from 'react'
+
 const App = () => (
   <div>
     <p>Hello world</p>
